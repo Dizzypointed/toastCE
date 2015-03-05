@@ -6,7 +6,7 @@ angular.module("app", ["toastCE"])
   function ($scope, toastFactory) {
     $scope.pressCount = 0;
     $scope.newToast = function () {
-      console.log(toastFactory.pop({type: "info", title: "Hej! ", message: "Grön! <button type='button' class='btn btn-primary' ng-click='press()'>press</button>", timerEnabled: true, scope: {
+      console.log(toastFactory.pop({type: "info", title: "Hej! ", message: "Gr&ouml;n! <button type='button' class='btn btn-primary' ng-click='press()'>press</button>", timerEnabled: true, scope: {
         press: function () {
           $scope.pressCount += 1;
         }
