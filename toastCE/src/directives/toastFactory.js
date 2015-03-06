@@ -15,8 +15,7 @@
                 return positionName && typeId !== -1 ? typeId : 0;
             },
             close = function (id) {
-                var toastIndex = toasts.indexOf($.grep(toasts, function (t) { t.id === id; }));
-                toasts.splice(toastIndex, 1);
+                toasts.splice(toasts.indexOf($.grep(toasts, function (t, i) { return t.id === id; })[0]), 1);
             },
             pop = function (args) {
                 var id = idSeed++,
