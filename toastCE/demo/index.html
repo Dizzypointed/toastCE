@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
     <script data-require="jquery@*" data-semver="2.1.3" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <link data-require="bootstrap@*" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
     <script data-require="bootstrap@*" data-semver="3.3.1" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script data-require="angular.js@*" data-semver="1.4.0-beta.5" src="https://code.angularjs.org/1.4.0-beta.5/angular.js"></script>
-      <script data-require="angular-sanitize@*" data-semver="1.4.0-beta.5" src="https://code.angularjs.org/1.4.0-beta.5/angular-sanitize.js"></script>
-      <script data-require="angular-animate@*" data-semver="1.4.0-beta.5" src="https://code.angularjs.org/1.4.0-beta.5/angular-animate.js"></script>
+    <script data-require="angular-sanitize@*" data-semver="1.4.0-beta.5" src="https://code.angularjs.org/1.4.0-beta.5/angular-sanitize.js"></script>
+    <script data-require="angular-animate@*" data-semver="1.4.0-beta.5" src="https://code.angularjs.org/1.4.0-beta.5/angular-animate.js"></script>
     <link rel="stylesheet" href="../src/toastCE.css" />
-    <script src="../src/toastCE.js"></script>
+    <script src="../src/modules/toastCE.js"></script>
+    <script src="../src/directives/toastFactory.js"></script>
+    <script src="../src/services/toast.js"></script>
+    <script src="../src/services/toastMessage.js"></script>
     <script src="script.js"></script>
-  </head>
+</head>
 
-  <body ng-app="app">
-    <h1>Hello Plunker!</h1>
+<body ng-app="app">
     <toast></toast>
     <div ng-controller="fred">
-      <button type="button" ng-click="newToast()">new toast</button>
-      Press count: {{pressCount}}
+        <button type="button" ng-click="newToast()">new toast</button>
+        Press count: {{pressCount}}
+   
     </div>
-  </body>
+</body>
 
 </html>
