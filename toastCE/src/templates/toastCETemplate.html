@@ -1,13 +1,16 @@
 <div class='toast-container' data-ng-class='config.positionClasses[config.position]'>
     <ul>
-        <li class='toast-item' data-ng-repeat='toast in toasts'>
+        <li class='toast-item' data-ng-repeat='toast in toasts' data-ng-animate="'animate'">
             <div class='alert col-sm-6' data-ng-class='config.layoutClasses[toast.type]' data-ng-mouseenter="pauseTimer(toast)" data-ng-mouseleave="playTimer(toast)" data-ng-click="toast.closeOnClick ? close(toast.id) : null">
                 <div class='toast-content'>
-                    <button type="button" class="close" aria-label="Close" ng-click="close(toast.id)"><span aria-hidden="true">&times;</span></button>
+                    <span data-ng-if="toast.showCloseButton">
+                        {{toast.showCloseButton}}
+                        <button type="button" class="close" aria-label="Close" data-ng-click="close(toast.id)"><span aria-hidden="true">&times;</span></button>
+                    </span>
                     <strong ng-if='toast.title'>{{toast.title}}</strong>
                     <toast-message message="toast.message" scope="toast.scope"></toast-message>
                 </div>
-                <div class="bar-timer" data-ng-if="toast.timerEnabled">
+                <div class="bar-timer" data-ng-if="toast.timerEnabled && toast.showTimer">
                     <div class="bar-inner" data-ng-style="toast.timerStyle"></div>
                 </div>
             </div>

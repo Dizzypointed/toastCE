@@ -57,7 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="demo\angular-sanitize.js" />
+    <Content Include="demo\angular.js" />
+    <Content Include="demo\bootstrap.min.css" />
+    <Content Include="demo\bootstrap.min.js" />
     <Content Include="demo\index.html" />
+    <Content Include="demo\jquery-2.1.3.min.js" />
     <Content Include="demo\script.js" />
     <Content Include="src\directives\toastFactory.js" />
     <Content Include="src\modules\toastCE.js" />

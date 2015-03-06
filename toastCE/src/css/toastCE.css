@@ -101,7 +101,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    background: #48f;
+    background: rgba(68, 136, 255, 0.4);
     -webkit-animation-name: bar-slide;
     -moz-animation-name: bar-slide;
     -ms-animation-name: bar-slide;

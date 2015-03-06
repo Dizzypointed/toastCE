@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module("toastCE", ["ngSanitize", "ngAnimate"])
+    angular.module("toastCE", ["ngSanitize"])
     .config(["$provide",
     function ($provide) {
         $provide.value("toastConfig", {
