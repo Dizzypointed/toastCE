@@ -16,9 +16,9 @@
                         return typeId !== -1 ? typeName : config.types[0];
                     })(args.type), 
                     typeId = config.types.indexOf(typeName),
-                    closeOnClick = angular.isDefined(args.closeOnClick) ? args.closeOnClick : false,
-                    showCloseButton = angular.isDefined(args.showCloseButton) ? args.showCloseButton : true,
-                    showTimer = angular.isDefined(args.showTimer) ? args.showTimer : true,
+                    closeOnClick = angular.isDefined(args.closeOnClick) ? args.closeOnClick : config.defaultCloseOnClick,
+                    showCloseButton = angular.isDefined(args.showCloseButton) ? args.showCloseButton : config.defaultShowCloseButton,
+                    showTimer = angular.isDefined(args.showTimer) ? args.showTimer : config.defaultShowTimer,
                     timer = args.timer ? args.timer : config.defaultTimer,
                     timerEnabled = angular.isDefined(args.timerEnabled) ? args.timerEnabled : config.timerEnabled,
                     pauseTimer = function (_toast) {
@@ -56,6 +56,16 @@
                         closeOnClick: closeOnClick,
                         clickable: closeOnClick ? { "cursor": "hand" } : "",
                         showCloseButton: showCloseButton,
+                        class: (function () {
+                            var cls = {};
+                            cls[config.layoutClassPre + typeName] = true;
+
+                            if (closeOnClick) {
+                                cls["clickable"] = true;
+                            }
+
+                            return cls;
+                        })(),
                         timerEnabled: timerEnabled,
                         showTimer: showTimer, 
                         timer: timer,
@@ -73,17 +83,7 @@
                         },
                         startTimer: function () {
                             startTimer(this);
-                        },
-                        class: (function () {
-                            var cls = {};
-                            cls[config.layoutClasses[typeId]] = true;
-
-                            if (closeOnClick) {
-                                cls["clickable"] = true;
-                            }
-
-                            return cls;
-                        })()
+                        }
                     };
 
                 toasts.push(toast);
