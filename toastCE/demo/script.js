@@ -34,28 +34,34 @@ angular.module("app", ["toastCE"])
               message: "This warning will not be closed on timer, but can be dissmissed on click!",
               timerEnabled: false,
               closeOnClick: true,
-              scope: {
-                  press: function () {
-                      $scope.pressCount += 1;
-                  }
-              }
+              showCloseButton: false
           },
           {
               type: "success",
               title: "Hello again! ",
-              message: "These presses will be tracked to! <button type='button' class='btn btn-primary' ng-click='press()'>press</button>",
-              timerEnabled: false,
-              showCloseButton: false
-          }],
-              toast;
+              message: "This is what the timer looks like when there's success! ",
+              timerEnabled: true,
+          },
+          {
+              type: "warning",
+              title: "Hello again! ",
+              message: "This is what the timer looks like on a warning! ",
+              timerEnabled: true,
+          },
+          {
+              type: "danger",
+              title: "Hello again! ",
+              message: "This is what the timer looks like when there's danger! ",
+              timerEnabled: true,
+          }];
 
           if (!$scope.index) {
               $scope.index = 0;
           }
 
-          toast = toasts[$scope.index];
+          var toast = toasts[$scope.index];
 
-          $scope.index = $scope.index + 2 >= toasts.length ? 0 : $scope.index + 1;
+          $scope.index = $scope.index + 1 >= toasts.length ? 0 : $scope.index + 1;
 
           return toast;
       }

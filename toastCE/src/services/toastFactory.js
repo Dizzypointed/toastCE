@@ -6,20 +6,21 @@
       function ($sce, config, $timeout) {
           var idSeed = 0,
             toasts = [], //[{id: 0, type: 0, title: "Title titlitetitus", message: "Meg, Magan, meggafaona megalitus, gegitantikus grambosola! <br/><br/><button class='btn btn-primary' type='button' ng-click='reconnect()'>Press</button>", position: 0, scope: {reconnect: function(){console.log("reconnect");}}}], 
-            getTypeId = function (typeName) {
-                var typeId = config.types.indexOf(typeName);
-                return typeName && typeId !== -1 ? typeId : 0;
-            },
             close = function (id) {
                 toasts.splice(toasts.indexOf($.grep(toasts, function (t, i) { return t.id === id; })[0]), 1);
             },
             pop = function (args) {
-                var closeOnClick = !angular.isUndefined(args.closeOnClick) ? args.closeOnClick : false;
-                var showCloseButton = !angular.isUndefined(args.showCloseButton) ? args.showCloseButton : true;
-                var showTimer = !angular.isUndefined(args.showTimer) ? args.showTimer : true;
                 var id = idSeed++,
+                    typeName = (function(typeName) {
+                        var typeId = config.types.indexOf(typeName);
+                        return typeId !== -1 ? typeName : config.types[0];
+                    })(args.type), 
+                    typeId = config.types.indexOf(typeName),
+                    closeOnClick = angular.isDefined(args.closeOnClick) ? args.closeOnClick : false,
+                    showCloseButton = angular.isDefined(args.showCloseButton) ? args.showCloseButton : true,
+                    showTimer = angular.isDefined(args.showTimer) ? args.showTimer : true,
                     timer = args.timer ? args.timer : config.defaultTimer,
-                    timerEnabled = angular.isUndefined(args.timerEnabled) ? config.timerEnabled : args.timerEnabled,
+                    timerEnabled = angular.isDefined(args.timerEnabled) ? args.timerEnabled : config.timerEnabled,
                     pauseTimer = function (_toast) {
                         if (_toast.timerEnabled) {
                             _toast.timerMilliseconds = _toast.timerMilliseconds - ((new Date()).valueOf() - _toast.timerStarted);
@@ -42,15 +43,18 @@
                             _toast.timerStyle["-ms-animation-play-state"] = "running";
                             _toast.timerStyle["-o-animation-play-state"] = "running";
                             _toast.timerStyle["animation-play-state"] = "running";
+                            //pauseTimer(_toast);
                         }
                     },
                     toast = {
                         id: id,
-                        type: getTypeId(args.type),
+                        typeName: typeName,
+                        type: typeId,
                         title: args.title,
                         message: args.message,
                         scope: args.scope,
                         closeOnClick: closeOnClick,
+                        clickable: closeOnClick ? { "cursor": "hand" } : "",
                         showCloseButton: showCloseButton,
                         timerEnabled: timerEnabled,
                         showTimer: showTimer, 
@@ -69,12 +73,23 @@
                         },
                         startTimer: function () {
                             startTimer(this);
-                        }
+                        },
+                        class: (function () {
+                            var cls = {};
+                            cls[config.layoutClasses[typeId]] = true;
+
+                            if (closeOnClick) {
+                                cls["clickable"] = true;
+                            }
+
+                            return cls;
+                        })()
                     };
 
                 toasts.push(toast);
 
                 if (toast.timerEnabled) {
+                    console.log(toast);
                     startTimer(toast);
                 }
 

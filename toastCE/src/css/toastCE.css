@@ -72,6 +72,10 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 @-webkit-keyframes bar-slide {
     100% {
         width: 0%;
@@ -85,23 +89,9 @@
 .bar-timer {
     margin: 15px 0 0 0;
     height: 10px;
-    width: 100%;
-    border: 1px solid #48f;
-    position: relative;
-    -webkit-border-radius: 3px;
-    -ms-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: #acf 0px 0px 7px;
-    -ms-box-shadow: #acf 0px 0px 7px;
-    box-shadow: #acf 0px 0px 7px;
 }
 
 .bar-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: rgba(68, 136, 255, 0.4);
     -webkit-animation-name: bar-slide;
     -moz-animation-name: bar-slide;
     -ms-animation-name: bar-slide;
