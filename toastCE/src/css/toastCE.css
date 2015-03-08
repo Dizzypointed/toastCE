@@ -10,19 +10,19 @@
     z-index: 1080;
 }
 
-    .toast-container > ul > li div.alert-success:before {
+    .toast-container > ul > li div.alert-success.visible-icon:before {
         content: "\e084";
     }
 
-    .toast-container > ul > li div.alert-danger:before {
+    .toast-container > ul > li div.alert-danger.visible-icon:before {
         content: "\e083";
     }
 
-    .toast-container > ul > li div.alert-warning:before {
+    .toast-container > ul > li div.alert-warning.visible-icon:before {
         content: "\e101";
     }
 
-    .toast-container > ul > li div.alert-info:before {
+    .toast-container > ul > li div.alert-info.visible-icon:before {
         content: "\e086";
     }
 
@@ -36,6 +36,20 @@
         margin-bottom: 20px;
         top: auto;
         bottom: 0;
+    }
+
+        .toast-container.bottom > ul {
+            bottom: 0;
+        }
+
+            .toast-container.bottom > ul > li div.alert {
+                margin-bottom: 0;
+                margin-top: 10px;
+            }
+
+    .toast-container.top > ul > li div.alert {
+        margin-bottom: 10px;
+        margin-top: 0;
     }
 
     .toast-container.right > ul {
@@ -53,15 +67,44 @@
         width: 400px;
     }
 
-        .toast-container > ul > li div.alert {
+    .toast-container.full {
+        margin: 0;
+    }
+
+        .toast-container.full > ul {
             width: 100%;
+            padding: 0 !important;
+        }
+
+            .toast-container.full > ul > li div.alert {
+                padding: 10px 20px;
+            }
+
+                .toast-container.full > ul > li div.alert:before {
+                    margin: 0 !important;
+                }
+
+                .toast-container.full > ul > li div.alert .toast-content {
+                    text-align: center;
+                }
+
+                .toast-container.full > ul > li div.alert .toast-message {
+                    display: inline-block !important;
+                }
+
+    .toast-container > ul > li div.alert {
+        opacity: 0.8;
+    }
+
+        .toast-container > ul > li div.alert:hover {
+            opacity: 1;
         }
 
 .toast-content {
     margin-left: 35px;
 }
 
-.toast-container > ul > li div.alert:before {
+.toast-container > ul > li div.alert.visible-icon:before {
     margin-top: 3px;
     font-size: 25px;
     position: absolute;

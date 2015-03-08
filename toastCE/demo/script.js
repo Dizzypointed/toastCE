@@ -5,23 +5,40 @@ angular.module("app", ["toastCE"])
   "toastFactory",
   function ($scope, toastFactory) {
       var getNextToast = function () {
-          var toasts = [{
-              type: "danger",
-              title: "Hello again! ",
-              message: "This is what the timer looks like when there's danger! ",
-              timerEnabled: true,
-              channel: "tl"
+          var toasts = [
+          {
+              type: "success",
+              title: "Welcome! ",
+              message: "This kind of toast is intended to be static, reminding, alerts like \"This item has not been published and is only visible to you\"! This one can be clicked away! ",
+              channel: "tt",
+              timerEnabled: false,
+              closeOnClick: true,
+              showCloseButton: false,
+              showIcon: false
           },
           {
               type: "info",
               title: "Hello! ",
-              message: "Presses will be tracked! <br/><br/><button type='button' class='btn btn-primary' ng-click='press()'>press</button>",
+              message: "This is custom html and a scope supplied to a toast that will track presses! <br/><br/><button type='button' class='btn btn-primary' ng-click='press()'>press</button>",
               timerEnabled: true,
               scope: {
                   press: function () {
                       $scope.pressCount += 1;
                   }
               }
+          },
+          {
+              type: "success",
+              title: "Hello again! ",
+              message: "This is a toast in a different channel! ",
+              channel: "bl"
+          },
+          {
+              type: "danger",
+              title: "Hello again! ",
+              message: "This is a toast in a different channel! ",
+              timerEnabled: true,
+              channel: "tl"
           },
           {
               type: "success",

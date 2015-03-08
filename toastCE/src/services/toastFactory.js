@@ -18,6 +18,7 @@
                     typeId = config.types.indexOf(typeName),
                     channel = args.channel ? args.channel : "default", 
                     closeOnClick = angular.isDefined(args.closeOnClick) ? args.closeOnClick : config.defaultCloseOnClick,
+                    showIcon = angular.isDefined(args.showIcon) ? args.showIcon : config.defaultShowIcon,
                     showCloseButton = angular.isDefined(args.showCloseButton) ? args.showCloseButton : config.defaultShowCloseButton,
                     showTimer = angular.isDefined(args.showTimer) ? args.showTimer : config.defaultShowTimer,
                     timer = args.timer ? args.timer : config.defaultTimer,
@@ -64,6 +65,10 @@
 
                             if (closeOnClick) {
                                 cls["clickable"] = true;
+                            }
+
+                            if (showIcon) {
+                                cls["visible-icon"] = true;
                             }
 
                             return cls;
