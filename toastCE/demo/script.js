@@ -77,6 +77,16 @@ angular.module("app", ["toastCE"])
               title: "Hello again! ",
               message: "This is what the timer looks like when there's danger! ",
               timerEnabled: true
+          },
+          {
+              type: "info",
+              title: "Hello again! ",
+              message: "This is the end. Go away! ",
+              channel: "bf",
+              timerEnabled: false,
+              closeOnClick: true,
+              showCloseButton: false,
+              showIcon: false
           }];
 
           if (!$scope.index) {
