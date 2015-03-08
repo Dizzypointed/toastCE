@@ -1,6 +1,6 @@
-<div class='toast-container' data-ng-class='config.positionClasses[config.position]'>
+<div class='toast-container' data-ng-class='positionClasses'>
     <ul>
-        <li class='toast-item' data-ng-repeat='toast in toasts'>
+        <li class='toast-item' data-ng-repeat='toast in toasts | filter:{channel: channel}'>
             <div class='alert col-sm-6' data-ng-class='toast.class' data-ng-mouseenter="pauseTimer(toast)" data-ng-mouseleave="playTimer(toast)" data-ng-click="toast.closeOnClick ? close(toast.id) : null" data-ng-style="toast.clickable">
                 <div class='toast-content'>
                     <span data-ng-if="toast.showCloseButton">

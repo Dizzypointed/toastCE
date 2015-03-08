@@ -6,6 +6,13 @@ angular.module("app", ["toastCE"])
   function ($scope, toastFactory) {
       var getNextToast = function () {
           var toasts = [{
+              type: "danger",
+              title: "Hello again! ",
+              message: "This is what the timer looks like when there's danger! ",
+              timerEnabled: true,
+              channel: "tl"
+          },
+          {
               type: "info",
               title: "Hello! ",
               message: "Presses will be tracked! <br/><br/><button type='button' class='btn btn-primary' ng-click='press()'>press</button>",
@@ -40,19 +47,19 @@ angular.module("app", ["toastCE"])
               type: "success",
               title: "Hello again! ",
               message: "This is what the timer looks like when there's success! ",
-              timerEnabled: true,
+              timerEnabled: true
           },
           {
               type: "warning",
               title: "Hello again! ",
               message: "This is what the timer looks like on a warning! ",
-              timerEnabled: true,
+              timerEnabled: true
           },
           {
               type: "danger",
               title: "Hello again! ",
               message: "This is what the timer looks like when there's danger! ",
-              timerEnabled: true,
+              timerEnabled: true
           }];
 
           if (!$scope.index) {

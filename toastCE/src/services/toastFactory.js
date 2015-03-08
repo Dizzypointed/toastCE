@@ -16,6 +16,7 @@
                         return typeId !== -1 ? typeName : config.types[0];
                     })(args.type), 
                     typeId = config.types.indexOf(typeName),
+                    channel = args.channel ? args.channel : "default", 
                     closeOnClick = angular.isDefined(args.closeOnClick) ? args.closeOnClick : config.defaultCloseOnClick,
                     showCloseButton = angular.isDefined(args.showCloseButton) ? args.showCloseButton : config.defaultShowCloseButton,
                     showTimer = angular.isDefined(args.showTimer) ? args.showTimer : config.defaultShowTimer,
@@ -50,6 +51,7 @@
                         id: id,
                         typeName: typeName,
                         type: typeId,
+                        channel: channel, 
                         title: args.title,
                         message: args.message,
                         scope: args.scope,
@@ -89,7 +91,6 @@
                 toasts.push(toast);
 
                 if (toast.timerEnabled) {
-                    console.log(toast);
                     startTimer(toast);
                 }
 

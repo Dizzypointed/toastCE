@@ -9,7 +9,7 @@
             progressBarClassPre: "progress-bar-",
             positionClasses: [{ top: true, right: true }, { top: true, left: true }, { bottom: true, left: true }, { bottom: true, right: true }, { top: true, thin: true }, { bottom: true, thin: true }],
             positions: ["top-right", "top-left", "bottom-left", "bottom-right", "top-thin", "bottom-thin"],
-            position: [0],
+            defaultPosition: 0,
             defaultTimer: 20,
             timerEnabled: true,
             defaultCloseOnClick: false,
