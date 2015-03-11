@@ -69,7 +69,7 @@
     <Content Include="src\directives\toast.js" />
     <Content Include="src\directives\toastMessage.js" />
     <Content Include="src\css\toastCE.css" />
-    <Content Include="src\templates\toastCETemplate.html" />
+    <Content Include="src\templates\toastTemplate.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

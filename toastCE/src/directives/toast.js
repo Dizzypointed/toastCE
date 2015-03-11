@@ -2,7 +2,8 @@
     angular.module("toastCE").directive("toast", [
         "toastFactory",
         "toastConfig",
-        function (toastFactory, toastConfig) {
+        "$templateCache",
+        function (toastFactory, toastConfig, $templateCache) {
             var link = function ($scope) {
                 $scope.toasts = toastFactory.toasts;
                 $scope.config = toastConfig;
@@ -22,7 +23,7 @@
                 replace: "true",
                 scope: {},
                 link: link,
-                templateUrl: "../src/templates/toastCETemplate.html"
+                templateUrl:  $templateCache.get("toastTemplate.html")
             };
         }]);
 })();
