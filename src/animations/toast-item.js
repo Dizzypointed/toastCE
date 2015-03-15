@@ -8,5 +8,5 @@ angular.module("toastCE").animation(".toast-item", function(){
 	return {
 		enter: enter, 
 		leave: leave
-	}
+	};
 });

@@ -61,7 +61,7 @@
                             cls[config.layoutClassPre + typeName] = true;
 
                             if (closeOnClick) {
-                                cls["clickable"] = true;
+                                cls[".clickable"] = true;
                             }
 
                             return cls;
