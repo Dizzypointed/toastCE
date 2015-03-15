@@ -7,7 +7,7 @@
           var idSeed = 0,
             toasts = [], //[{id: 0, type: 0, title: "Title titlitetitus", message: "Meg, Magan, meggafaona megalitus, gegitantikus grambosola! <br/><br/><button class='btn btn-primary' type='button' ng-click='reconnect()'>Press</button>", position: 0, scope: {reconnect: function(){console.log("reconnect");}}}], 
             close = function (id) {
-                toasts.splice(toasts.indexOf($.grep(toasts, function (t, i) { return t.id === id; })[0]), 1);
+                toasts.splice(toasts.indexOf($.grep(toasts, function (t) { return t.id === id; })[0]), 1);
             },
             pop = function (args) {
                 var id = idSeed++,
@@ -16,9 +16,7 @@
                         return typeId !== -1 ? typeName : config.types[0];
                     })(args.type), 
                     typeId = config.types.indexOf(typeName),
-                    channel = args.channel ? args.channel : "default", 
                     closeOnClick = angular.isDefined(args.closeOnClick) ? args.closeOnClick : config.defaultCloseOnClick,
-                    showIcon = angular.isDefined(args.showIcon) ? args.showIcon : config.defaultShowIcon,
                     showCloseButton = angular.isDefined(args.showCloseButton) ? args.showCloseButton : config.defaultShowCloseButton,
                     showTimer = angular.isDefined(args.showTimer) ? args.showTimer : config.defaultShowTimer,
                     timer = args.timer ? args.timer : config.defaultTimer,
@@ -52,7 +50,6 @@
                         id: id,
                         typeName: typeName,
                         type: typeId,
-                        channel: channel, 
                         title: args.title,
                         message: args.message,
                         scope: args.scope,
@@ -65,10 +62,6 @@
 
                             if (closeOnClick) {
                                 cls["clickable"] = true;
-                            }
-
-                            if (showIcon) {
-                                cls["visible-icon"] = true;
                             }
 
                             return cls;
@@ -96,6 +89,7 @@
                 toasts.push(toast);
 
                 if (toast.timerEnabled) {
+                    console.log(toast);
                     startTimer(toast);
                 }
 

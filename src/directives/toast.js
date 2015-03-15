@@ -2,14 +2,11 @@
     angular.module("toastCE").directive("toast", [
         "toastFactory",
         "toastConfig",
-        function (toastFactory, config) {
+        "$templateCache",
+        function (toastFactory, toastConfig) {
             var link = function ($scope) {
-                if (!$scope.channel) {
-                    $scope.channel = "default";
-                }
-
                 $scope.toasts = toastFactory.toasts;
-                $scope.config = config;
+                $scope.config = toastConfig;
                 $scope.close = function (id) {
                     toastFactory.close(id);
                 };
@@ -19,19 +16,14 @@
                 $scope.playTimer = function (toast) {
                     toast.startTimer();
                 };
-
-                $scope.positionClasses = $scope.position ? config.positionClasses[config.positions.indexOf($scope.position)] : config.positionClasses[config.defaultPosition];
             };
 
             return {
                 restrict: "E",
                 replace: "true",
-                scope: {
-                    channel: "=",
-                    position: "="
-                },
+                scope: {},
                 link: link,
-                templateUrl: "../src/templates/toastTemplate.html"
+                templateUrl:  "src/templates/toastTemplate.html"
             };
         }]);
 })();
