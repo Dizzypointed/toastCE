@@ -70,7 +70,7 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.clickable {
+.ce-clickable {
     cursor: pointer;
 }
 

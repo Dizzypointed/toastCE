@@ -64,7 +64,7 @@
                             cls[config.layoutClassPre + typeName] = true;
 
                             if (closeOnClick) {
-                                cls["clickable"] = true;
+                                cls["ce-clickable"] = true;
                             }
 
                             if (showIcon) {
