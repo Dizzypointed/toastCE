@@ -1,0 +1,1 @@
+http-server C:\Resurs\code\toastCE\ -p 1024

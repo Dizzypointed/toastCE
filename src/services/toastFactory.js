@@ -16,7 +16,9 @@
                         return typeId !== -1 ? typeName : config.types[0];
                     })(args.type), 
                     typeId = config.types.indexOf(typeName),
+                    channel = args.channel ? args.channel : "default", 
                     closeOnClick = angular.isDefined(args.closeOnClick) ? args.closeOnClick : config.defaultCloseOnClick,
+                    showIcon = angular.isDefined(args.showIcon) ? args.showIcon : config.defaultShowIcon,
                     showCloseButton = angular.isDefined(args.showCloseButton) ? args.showCloseButton : config.defaultShowCloseButton,
                     showTimer = angular.isDefined(args.showTimer) ? args.showTimer : config.defaultShowTimer,
                     timer = args.timer ? args.timer : config.defaultTimer,
@@ -50,6 +52,7 @@
                         id: id,
                         typeName: typeName,
                         type: typeId,
+                        channel: channel, 
                         title: args.title,
                         message: args.message,
                         scope: args.scope,
@@ -61,7 +64,11 @@
                             cls[config.layoutClassPre + typeName] = true;
 
                             if (closeOnClick) {
-                                cls[".clickable"] = true;
+                                cls["clickable"] = true;
+                            }
+
+                            if (showIcon) {
+                                cls["visible-icon"] = true;
                             }
 
                             return cls;
@@ -89,7 +96,6 @@
                 toasts.push(toast);
 
                 if (toast.timerEnabled) {
-                    console.log(toast);
                     startTimer(toast);
                 }
 
