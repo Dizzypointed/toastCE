@@ -1,8 +1,6 @@
-/*TODO-ce: review classes, make more unique if applicable*/
-
- .toast-item {
+.toast-item {
     list-style: none;
-     overflow: auto;
+    overflow: auto;
 }
 
 .toast-container {
@@ -11,58 +9,105 @@
     z-index: 1080;
 }
 
-    .toast-container > ul > li div.alert-success:before {
-        content: "\e084";
-    }
+.toast-container > ul > li div.alert-success.visible-icon:before {
+    content: "\e084";
+}
 
-    .toast-container > ul > li div.alert-danger:before {
-        content: "\e083";
-    }
+.toast-container > ul > li div.alert-danger.visible-icon:before {
+    content: "\e083";
+}
 
-    .toast-container > ul > li div.alert-warning:before {
-        content: "\e101";
-    }
+.toast-container > ul > li div.alert-warning.visible-icon:before {
+    content: "\e101";
+}
 
-    .toast-container > ul > li div.alert-info:before {
-        content: "\e086";
-    }
+.toast-container > ul > li div.alert-info.visible-icon:before {
+    content: "\e086";
+}
 
-    .toast-container.top {
-        margin-top: 20px;
-        top: 0;
-        bottom: auto;
-    }
+.toast-container.top {
+    margin-top: 20px;
+    top: 0;
+    bottom: auto;
+}
 
-    .toast-container.bottom {
-        margin-bottom: 20px;
-        top: auto;
-        bottom: 0;
-    }
+.toast-container.bottom {
+    margin-bottom: 20px;
+    top: auto;
+    bottom: 0;
+}
 
-    .toast-container.right > ul {
-        right: 0;
-        margin-right: 20px;
-    }
+.toast-container.bottom > ul {
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+}
 
-    .toast-container.left > ul {
-        left: 0;
-        margin-left: 20px;
-    }
+.toast-container.bottom > ul > li div.alert {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
 
-    .toast-container > ul {
-        position: absolute;
-        width: 400px;
-    }
+.toast-container.top > ul > li div.alert {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
 
-        .toast-container > ul > li div.alert {
-            width: 100%;
-        }
+.toast-container.right > ul {
+    right: 0;
+    margin-right: 20px;
+}
+
+.toast-container.left > ul {
+    left: 0;
+    margin-left: 20px;
+    padding: 0;
+}
+
+.toast-container > ul {
+    position: absolute;
+    width: 400px;
+}
+
+.toast-container.full {
+    margin: 0;
+}
+
+.toast-container.full > ul {
+    width: 100%;
+    padding: 0 !important;
+}
+
+.toast-container.full > ul > li div.alert {
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.toast-container.full > ul > li div.alert:before {
+    margin: 0 !important;
+}
+
+.toast-container.full > ul > li div.alert .toast-content {
+    text-align: center;
+}
+
+.toast-container.full > ul > li div.alert .toast-message {
+    display: inline-block !important;
+}
+
+.toast-container > ul > li div.alert {
+    opacity: 0.8;
+}
+
+.toast-container > ul > li div.alert:hover {
+    opacity: 1;
+}
 
 .toast-content {
     margin-left: 35px;
 }
 
-.toast-container > ul > li div.alert:before {
+.toast-container > ul > li div.alert.visible-icon:before {
     margin-top: 3px;
     font-size: 25px;
     position: absolute;
@@ -79,7 +124,7 @@
 
 @-webkit-keyframes bar-slide {
     100% {
-        width: 0;
+        width: 0%;
     }
 
     0% {
@@ -108,16 +153,4 @@
     -ms-animation-timing-function: linear;
     -o-animation-timing-function: linear;
     animation-timing-function: linear;
-}
-
-/*.toast-item {
-    transition: all linear 0.5s;
-}
-
-.toast-item.ng-enter, .toast-item.ng-leave.ng-leave-active {
-    opacity: 0;
-}
-
-.toast-item.ng-enter.ng-enter-active, .toast-item.ng-leave {
-    opacity: 1;
 }
