@@ -1,4 +1,4 @@
-﻿(function () {
+﻿﻿(function () {
     angular.module("toastCE", ["ngSanitize", "ngAnimate"])
     .config(["$provide",
     function ($provide) {
