@@ -7,5 +7,6 @@
     <orderEntry type="library" name="jQuery-2.0.0" level="application" />
     <orderEntry type="library" name="bootstrap-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="angularjs-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="toastCE node_modules" level="project" />
   </component>
 </module>

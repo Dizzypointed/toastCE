@@ -2,17 +2,17 @@
   "name": "toastCE",
   "version": "0.0.1",
   "dependencies" : {
+    "jQuery" : "*",
     "angular" : "*",
     "angular-sanitize" : "*",
     "angular-animate" : "*",
-    "jQuery" : "*",
     "bootstrap.css" : "*"
   },
   "devDependencies" : {
-    "node" : "*",
-    "http-server" : "*",
-    "grunt" : "*",
+    "grunt" : "~0.4.*",
     "grunt-contrib-jshint" : "*",
-    "grunt-contrib-watch" : "*"
+    "grunt-contrib-watch" : "*",
+    "matchdep": "*",
+    "http-server" : "*"
   }
 }
