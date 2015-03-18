@@ -5,7 +5,14 @@ angular.module("app", ["toastCE"])
   "toastFactory",
   function ($scope, toastFactory) {
       var getNextToast = function () {
-          var toasts = [{
+          var toasts = [
+              //{
+              //    type: "success",
+              //    message: "This message is intended to be more static heads up info, to the user",
+              //    timerEnabled: false,
+              //    channel: "tt"
+              //},
+          {
               type: "info",
               title: "Hello! ",
               message: "Presses will be tracked! <br/><br/><button type='button' class='btn btn-primary' ng-click='press()'>press</button>",
