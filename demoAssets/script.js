@@ -8,7 +8,7 @@ angular.module("app", ["toastCE"])
           var toasts = [{
               type: "success",
               title: "Welcome! ",
-              message: "This kind of toast is intended to be static, reminding, alerts like \"This item has not been published and is only visible to you\"! This one can be clicked away! ",
+              message: "This kind of toast is intended to be a static, reminding, alert like \"This item has not been published and is only visible to you\"! This one can be clicked away! ",
               channel: "tt",
               timerEnabled: false,
               closeOnClick: true,
@@ -18,7 +18,7 @@ angular.module("app", ["toastCE"])
               {
                   type: "info",
                   title: "Hello! ",
-                  message: "This is custom html and a scope supplied to a toast that will track presses! <br/><br/><button type='button' class='btn btn-primary' ng-click='press()'>press</button>",
+                  message: "This is custom html and a scope supplied to a toast that will track presses! <br/><br/><button type='button' class='btn btn-primary' ng-click='press()'>press me</button>",
                   timerEnabled: true,
                   scope: {
                       press: function () {
@@ -54,7 +54,7 @@ angular.module("app", ["toastCE"])
               {
                   type: "warning",
                   title: "Hello again! ",
-                  message: "This warning will not be closed on timer, but can be dissmissed on click!",
+                  message: "This warning will not be closed on timer, but can be dismissed on click!",
                   timerEnabled: false,
                   closeOnClick: true,
                   showCloseButton: false
