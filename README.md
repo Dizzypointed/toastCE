@@ -8,7 +8,7 @@ So what sets it apart from most other such modules?
 - It's simple and easily customisable layout. 
 - It's simple straight forward architecture (any one used to angular will feel right at home). 
 
-### demo 
+### Demo
 
 [Check out the demo!](https://dizzypointed.github.io/toastCE/)
 
