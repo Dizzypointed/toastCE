@@ -1,18 +1,21 @@
 {
   "name": "toastCE",
-  "version": "0.0.1",
-  "dependencies" : {
-    "jQuery" : "*",
-    "angular" : "*",
-    "angular-sanitize" : "*",
-    "angular-animate" : "*",
-    "bootstrap.css" : "*"
+  "version": "0.1.0",
+  "dependencies": {
+    "jQuery": "*",
+    "angular": "*",
+    "angular-sanitize": "*",
+    "angular-animate": "*",
+    "bootstrap.css": "*"
   },
-  "devDependencies" : {
-    "grunt" : "~0.4.*",
-    "grunt-contrib-jshint" : "*",
-    "grunt-contrib-watch" : "*",
-    "matchdep": "*",
-    "http-server" : "*"
+  "devDependencies": {
+    "grunt": "~0.4.*",
+    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "matchdep": "^0.3.0",
+    "http-server": "^0.8.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-uglify": "^0.8.1",
+    "grunt-contrib-cssmin": "^0.12.2"
   }
 }

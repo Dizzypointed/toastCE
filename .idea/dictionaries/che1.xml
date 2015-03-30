@@ -2,6 +2,8 @@
   <dictionary name="che1">
     <words>
       <w>clickable</w>
+      <w>cssmin</w>
+      <w>uglify</w>
     </words>
   </dictionary>
 </component>

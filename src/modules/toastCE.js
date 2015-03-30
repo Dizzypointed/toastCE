@@ -11,7 +11,7 @@
             positions: ["top-right", "top-left", "bottom-left", "bottom-right", "top-full", "bottom-full"],
             defaultPosition: 0,
             defaultTimer: 20,
-            timerEnabled: true,
+            defaultTimerEnabled: true,
             defaultCloseOnClick: false,
             defaultShowCloseButton: true,
             defaultShowTimer: true,

@@ -7,7 +7,13 @@
           var idSeed = 0,
             toasts = [], //[{id: 0, type: 0, title: "Title titlitetitus", message: "Meg, Magan, meggafaona megalitus, gegitantikus grambosola! <br/><br/><button class='btn btn-primary' type='button' ng-click='reconnect()'>Press</button>", position: 0, scope: {reconnect: function(){console.log("reconnect");}}}], 
             close = function (id) {
-                toasts.splice(toasts.indexOf($.grep(toasts, function (t) { return t.id === id; })[0]), 1);
+                var _toast = toasts.indexOf($.grep(toasts, function (t) {
+                    return t.id === id;
+                })[0]);
+                if(_toast.timerPromise){
+                    $timeout.cancel(_toast.timerPromise);
+                }
+                toasts.splice(_toast, 1);
             },
             pop = function (args) {
                 var id = idSeed++,
@@ -22,7 +28,7 @@
                     showCloseButton = angular.isDefined(args.showCloseButton) ? args.showCloseButton : config.defaultShowCloseButton,
                     showTimer = angular.isDefined(args.showTimer) ? args.showTimer : config.defaultShowTimer,
                     timer = args.timer ? args.timer : config.defaultTimer,
-                    timerEnabled = angular.isDefined(args.timerEnabled) ? args.timerEnabled : config.timerEnabled,
+                    timerEnabled = angular.isDefined(args.timerEnabled) ? args.timerEnabled : config.defaultTimerEnabled,
                     pauseTimer = function (_toast) {
                         if (_toast.timerEnabled) {
                             _toast.timerMilliseconds = _toast.timerMilliseconds - ((new Date()).valueOf() - _toast.timerStarted);
@@ -84,18 +90,18 @@
                             "-ms-animation-duration": timer + "s",
                             "-o-animation-duration": timer + "s",
                             "animation-duration": timer + "s"
-                        },
-                        pauseTimer: function () {
-                            pauseTimer(this);
-                        },
-                        startTimer: function () {
-                            startTimer(this);
                         }
                     };
 
                 toasts.push(toast);
 
                 if (toast.timerEnabled) {
+                    toast.pauseTimer = function () {
+                        pauseTimer(this);
+                    };
+                    toast.startTimer = function () {
+                        startTimer(this);
+                    };
                     startTimer(toast);
                 }
 
