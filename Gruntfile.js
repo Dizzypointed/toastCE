@@ -20,7 +20,8 @@ module.exports = function(grunt) {
                     }
                 },
                 files: {
-                    'dist/<%= pkg.name %>.js': ['src/modules/*.js', 'src/**/*.js']
+                    'dist/<%= pkg.name %>.js': ['src/core/modules/*.js', 'src/core/**/*.js'],
+                    'dist/<%= pkg.name %>.config.js': ['src/configuration/*.js']
                 }
             },
             distCss: {
@@ -29,6 +30,12 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'dist/<%= pkg.name %>.css': ['src/**/*.css']
+                }
+            },
+            distTemplates: {
+                files: {
+                    'dist/templates/toastTemplate.html': 'src/core/templates/toastTemplate.html',
+                    'dist/templates/toastMessageTemplate.html': 'src/core/templates/toastMessageTemplate.html'
                 }
             }
         },

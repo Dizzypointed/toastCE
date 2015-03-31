@@ -1,25 +1,7 @@
 /*! toastCE - v0.1.0*/
-(function () {// Source: src/modules/toastCE.js
-angular.module("toastCE", ["ngSanitize", "ngAnimate"])
-    .config(["$provide",
-    function ($provide) {
-        $provide.value("toastConfig", {
-            types: ["success", "danger", "warning", "info"],
-            icons: ["glyphicon-ok-sign", "glyphicon-remove-sign", "glyphicon-exclamation-sign", "glyphicon-info-sign"],
-            layoutClassPre: "alert-",
-            progressBarClassPre: "progress-bar-",
-            positionClasses: [{ top: true, right: true }, { top: true, left: true }, { bottom: true, left: true }, { bottom: true, right: true }, { top: true, full: true }, { bottom: true, full: true }],
-            positions: ["top-right", "top-left", "bottom-left", "bottom-right", "top-full", "bottom-full"],
-            defaultPosition: 0,
-            defaultTimer: 20,
-            defaultTimerEnabled: true,
-            defaultCloseOnClick: false,
-            defaultShowCloseButton: true,
-            defaultShowTimer: true,
-            defaultShowIcon: true
-        });
-    }]);
-// Source: src/animations/toast-item.js
+(function () {// Source: src/core/modules/toastCE.js
+angular.module("toastCE", ["ngSanitize", "ngAnimate"]);
+// Source: src/core/animations/toast-item.js
 angular.module("toastCE").animation(".toast-item", function(){
 	var enter = function(elem, done){
 		elem.hide().slideToggle("slow", done);
@@ -32,11 +14,10 @@ angular.module("toastCE").animation(".toast-item", function(){
 		leave: leave
 	};
 });
-// Source: src/directives/toast.js
+// Source: src/core/directives/toast.js
 angular.module("toastCE").directive("toast", [
         "toastFactory",
         "toastConfig",
-        "$templateCache",
         function (toastFactory, toastConfig) {
             var link = function ($scope) {
                 if(!angular.isDefined($scope.channel)){
@@ -70,13 +51,14 @@ angular.module("toastCE").directive("toast", [
                     position: "="
                 },
                 link: link,
-                template:  "<div class='toast-container' data-ng-class='positionClasses'><ul><li class='toast-item' data-ng-repeat='toast in toasts | filter: {channel: channel}'><div class='alert col-sm-12' data-ng-class='toast.class' data-ng-mouseenter='pauseTimer(toast)' data-ng-mouseleave='playTimer(toast)' data-ng-click='toast.closeOnClick ? close(toast.id) : null' data-ng-style='toast.clickable'><div class='toast-content'><span data-ng-if='toast.showCloseButton'><button type='button' class='close' aria-label='Close' data-ng-click='close(toast.id)'><span aria-hidden='true'>&times;</span></button></span><strong ng-if='toast.title'>{{toast.title}}</strong><toast-message message='toast.message' scope='toast.scope'></toast-message></div><div class='bar-timer progress' data-ng-if='toast.timerEnabled && toast.showTimer'><div class='bar-inner progress-bar' data-ng-class='config.progressBarClassPre + toast.typeName' data-ng-style='toast.timerStyle'></div></div></div></li></ul></div>"
+                templateUrl: toastConfig.templatePath + "toastTemplate.html"
             };
         }]);
-// Source: src/directives/toastMessage.js
+// Source: src/core/directives/toastMessage.js
 angular.module("toastCE").directive("toastMessage", [
         "$compile",
-        function ($compile) {
+        "toastConfig",
+        function ($compile, toastConfig) {
             var scope = {
                     message: "=",
                     scope: "="
@@ -96,12 +78,12 @@ angular.module("toastCE").directive("toastMessage", [
             return {
                 restrict: "E",
                 replace: true,
-                template: '<div class="toast-message"></div>',
+                templateUrl:  toastConfig.templatePath + 'toastMessageTemplate.html',
                 scope: scope,
                 link: link
             };
         }]);
-// Source: src/services/toastFactory.js
+// Source: src/core/services/toastFactory.js
 angular.module("toastCE").factory("toastFactory", [
       "$sce",
       "toastConfig",

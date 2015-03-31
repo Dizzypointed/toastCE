@@ -1,7 +1,8 @@
 ﻿(function () {
     angular.module("toastCE").directive("toastMessage", [
         "$compile",
-        function ($compile) {
+        "toastConfig",
+        function ($compile, toastConfig) {
             var scope = {
                     message: "=",
                     scope: "="
@@ -21,7 +22,7 @@
             return {
                 restrict: "E",
                 replace: true,
-                template: '<div class="toast-message"></div>',
+                templateUrl:  toastConfig.templatePath + 'toastMessageTemplate.html',
                 scope: scope,
                 link: link
             };
