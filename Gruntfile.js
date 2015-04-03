@@ -32,10 +32,11 @@ module.exports = function(grunt) {
                     'dist/<%= pkg.name %>.css': ['src/**/*.css']
                 }
             },
-            distTemplates: {
+            distRest: {
                 files: {
                     'dist/templates/toastTemplate.html': 'src/core/templates/toastTemplate.html',
-                    'dist/templates/toastMessageTemplate.html': 'src/core/templates/toastMessageTemplate.html'
+                    'dist/templates/toastMessageTemplate.html': 'src/core/templates/toastMessageTemplate.html',
+                    'dist/license.txt': 'license.txt'
                 }
             }
         },
