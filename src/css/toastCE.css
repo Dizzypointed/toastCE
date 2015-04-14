@@ -132,6 +132,15 @@
     }
 }
 
+@-moz-keyframes bar-slide {
+    100% {
+        width: 0;
+    }
+    0% {
+        width: 100%;
+    }
+ }
+
 @keyframes bar-slide {
     100% {
         width: 0%;
